@@ -12,9 +12,10 @@
 // @modified    10/12/2013
 // @include     http://tieba.baidu.com/p/*
 // @include     http://tieba.baidu.com/f*
+// @include     http://tieba.baidu.com/home/*
 // @grant       none
 // @run-at      document-end
-// @version     1.0.2
+// @version     1.0.3
 // ==/UserScript==
 
 
@@ -32,7 +33,7 @@
 
 
 
-var VERSION='1.0.2';
+var VERSION='1.0.3';
 var APPNAME='TieBaHDAvatar';
 (function(){
     var portraitCache={};
@@ -51,7 +52,7 @@ var APPNAME='TieBaHDAvatar';
     function showHighAvatar(uname){
         var url='http://tieba.baidu.com/home/get/panel?ie=utf-8&un='+encodeURIComponent(uname),
         hdImgUrl='http://himg.baidu.com/sys/portraitl/item/',httpHwnd=null,
-        modal= new $.modal({show: true}),box=$('<div id="hd_avatar" />').css({
+        modal= new $.modal({show: true}),box=$('<div/>').css({
             "left":"50%",
             "top":"50%",
             "position":"fixed",
@@ -64,7 +65,9 @@ var APPNAME='TieBaHDAvatar';
             modal.remove();
             box.remove();
         },
-        loadingImg=$('<img src="http://tieba.baidu.com/tb/img/loading.gif" height="32px" width="32px"/>').css({
+        loadingImg=$('<img src="http://tieba.baidu.com/tb/img/loading.gif"/>').css({
+            "height":"32px",
+            "width":"32px",
             "margin-left":"-16px",
             "margin-top":"-16px"
         }).appendTo(box),
@@ -78,8 +81,11 @@ var APPNAME='TieBaHDAvatar';
                     "height":h+"px",
                     "width":w+"px",
                     "margin-left":"-"+w/2+"px",
-                    "margin-top":"-"+h/2+"px"
-                }).appendTo(box);
+                    "margin-top":"-"+h/2+"px",
+                    "border-radius":"3px",
+                    "box-shadow":"0 0 15px rgba(127, 173, 220, 0.8), 0 0 15px #7FADDC inset",                    
+                    "cursor":"url(\"http://static.tieba.baidu.com/tb/img/frs/cur_zout.cur\"), pointer"
+                }).attr('title',uname).appendTo(box);
             }
         };
         if(portraitCache[uname]){
@@ -95,4 +101,5 @@ var APPNAME='TieBaHDAvatar';
         modal.element.click(dialogClose);   
     }
 })();
+
 
