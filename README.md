@@ -29,6 +29,12 @@
 * Git: http://git.oschina.net/youyifentian/
 * 邮箱：youyifentian@gmail.com
 
+##3.更新日志
+
+ - 2013.12.10------1.0.3
+ - (1)增加对home页面的支持并修复了部分黑框问题,(2)增加了图片样式,鼠标样式和title属性
+ - 2013.12.10------1.0.2
+ - (1)贴吧高清头像查看器正式版发布
 
   [1]: http://userscripts.org/images/browsers/firefox.png
   [2]: https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/
